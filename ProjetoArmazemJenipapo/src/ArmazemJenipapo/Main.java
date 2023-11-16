@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-int numero = 0;
+		Scanner entrada = new Scanner(System.in);
         
         System.out.println("WELCOME TO ARMAZEM JENIPAPO");
         System.out.println("Quem você é? Digite o numero correspondente");
@@ -15,9 +15,7 @@ int numero = 0;
         System.out.println("3.Cliente");
         System.out.println("4.Não sou cadastrado");
         
-        Scanner entrada = new Scanner(System.in);
-        
-        numero = entrada.nextInt();
+        int numero = entrada.nextInt();
           
         switch (numero){
             
@@ -29,8 +27,7 @@ int numero = 0;
                  System.out.println("3.Listar Produto em Estoque");
                  System.out.println("4.Listar Produto do Fornecedor"); 
                  
-                 int numeroMenu = 0;
-                 numeroMenu = entrada.nextInt();
+                 int numeroMenu = entrada.nextInt();
                  
                  switch (numeroMenu){
                      
@@ -56,10 +53,39 @@ int numero = 0;
                  break;
             case 4:
                  System.out.println("Vamos fazer seu cadastro");
-                 break;
+                 System.out.println("Qual cadastro quer realizar:");
+                 System.out.println("1. Cadastro Cliente");
+                 System.out.println("2. Cadastro Administrador");
+                 System.out.println("3. Cadastro Fornecedor");
+                 System.out.println("4. Voltar");
+                 
+                 int escolhaCadastro = entrada.nextInt();
+                 switch (escolhaCadastro) {
+                 
+                case 1:
+                	//Função cadastrarCliente()
+                	break;
+                	
+                case 2:
+                	//Função cadastrarAdmin()
+                	break;
+                	
+                case 3:
+                	//Função cadastrarFornecedor()
+                	break;
+                	
+                case 4:
+                	//Função menuPrincipal()
+                	break;
+                	
+                default:
+                	System.out.println("O número escolhido é inválido! Digite um número entre 1 a 4.");
+                	break;
+                 }
                  
             default:
                 System.out.println("O número escolhido é inválido! Digite um número entre 1 a 3.");
+                break;
     }
     }
 	}
