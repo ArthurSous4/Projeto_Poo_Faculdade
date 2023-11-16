@@ -36,12 +36,14 @@ int numero = 0;
                      
                      case 1:
                          System.out.println("Nome do produto:");
-                         String nome = entrada.nextLine();
+                         String nome = entrada.next();
+                         entrada.nextLine();
                          System.out.println("Desrição do produto:");
                          String descricao = entrada.nextLine();
                          System.out.println("Nome do Fornecedor do produto:");
                          String nomeFornecedor = entrada.nextLine();
                           
+                         System.out.println(nome + descricao + nomeFornecedor);
                         // if nomeFornecedor == 
             }
                  
