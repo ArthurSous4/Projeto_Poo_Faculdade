@@ -1,6 +1,11 @@
 package ArmazemJenipapo;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
+
+
 
 public class fornecedor extends Pessoa {
 	
@@ -19,8 +24,7 @@ public class fornecedor extends Pessoa {
 	private Date dataNascimento;
 	public produto produtoDistribuido;
 	
-fornecedor(int idFornecedor, String nome, String senha, int cnpj, String logradouro,String bairro, String cidade, String estado,
-		int cep, int telefone, String email, Date dataCadastro, Date dataNascimento, produto produtoDistribuido){
+fornecedor(){
 	
 	this.idFornecedor = idFornecedor;
 	this.nome = nome;
@@ -150,11 +154,34 @@ public void setProdutoDistribuido(produto produtoDistribuido) {
 	this.produtoDistribuido = produtoDistribuido;
 }
 
-private void adicionarFornecidos() {
-	
+	List<String> listaDeFornecedor = new ArrayList<>();
+public void adicionarFornecidos() {
+	Scanner entrada = new Scanner(System.in);
+
+
+	 System.out.println("digite o nome");
+	 nome = entrada.next();
+
+	 System.out.println("digite o senha");
+	 senha = entrada.next();
+
+	 System.out.println("digite o telefone");
+	 String telefoneStr = entrada.nextLine();
+	 int telefoneInt = Integer.parseInt(telefoneStr);
+
+	 String user = new String(nome + " " + senha + " " + telefoneInt);
+
+	 listaDeFornecedor.add(user);
+
+	 System.out.println("Cadastrado com Sucesso!!");
+
 }
 
-private void listarFornecidos() {
+public void listarFornecidos () {
+
+
+
+	System.out.println(listaDeFornecedor);
 	
 }
 
