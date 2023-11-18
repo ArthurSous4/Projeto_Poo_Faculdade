@@ -1,6 +1,3 @@
 package ArmazemJenipapo;
 
-public abstract class Pessoa {
-
-		
-}
+public abstract class Pessoa {}

@@ -48,7 +48,7 @@ public class Main {
 
                     break;
                 case 2:
-                    fornecedor fornecedor = new fornecedor();
+                    Fornecedor fornecedor = new Fornecedor();
                     int i = 1;
 
                     while (i != 0) {
@@ -63,13 +63,13 @@ public class Main {
                         switch (numerofornecedor) {
 
                             case 1:
-                                fornecedor.adicionarFornecidos();
+                                
                                 break;
                             case 2:
                                 System.out.println("EM MANUTENÇÃO");
                                 break;
                             case 3:
-                                fornecedor.listarFornecidos();
+                                
                                 break;
                             default:
                                 i = 0;
