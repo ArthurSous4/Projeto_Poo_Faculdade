@@ -46,9 +46,9 @@ public void setDescricao(String descricao) {this.descricao = descricao;}
 
 
 
-public Fornecedor getNomeFornecedor() {return nomeFornecedor;}
+public String getNomeFornecedor() {return nomeFornecedor.getNome();}
 
-public void setNomeFornecedor(Fornecedor nomeFornecedor) {this.nomeFornecedor = nomeFornecedor;}
+public void setNomeFornecedor(String nome) {nomeFornecedor.setNome(nome);}
 
 
 

@@ -10,14 +10,14 @@ public class Fornecedor extends Pessoa {
 	private String cidade;
 	private String estado;
 	private int cep;
-	private int telefone;
+	private String telefone;
 	private String email;
 	private String dataCadastro;
 	private String dataNascimento;
 	
 Fornecedor(){} //Construtor Vazio
 	
-Fornecedor(int id, String nome, int cnpj, String logradouro, String bairro, String cidade, String estado, int cep, int telefone,
+Fornecedor(int id, String nome, int cnpj, String logradouro, String bairro, String cidade, String estado, int cep, String telefone,
 String email, String dataCadastro, String dataNascimento){
 	
 	this.id = id;
@@ -83,9 +83,9 @@ public void setCep(int cep) {this.cep = cep;}
 
 
 
-public int getTelefone() {return telefone;}
+public String getTelefone() {return telefone;}
 
-public void setTelefone(int telefone) {this.telefone = telefone;}
+public void setTelefone(String telefone) {this.telefone = telefone;}
 
 
 
@@ -105,42 +105,4 @@ public String getDataNascimento() {return dataNascimento;}
 
 public void setDataNascimento(String dataNascimento) {this.dataNascimento = dataNascimento;}
 
-
-/*
-	List<String> listaDeFornecedor = new ArrayList<>();
-public void adicionarFornecidos() {
-	Scanner entrada = new Scanner(System.in);
-
-
-	 System.out.println("digite o nome");
-	 nome = entrada.next();
-
-	 System.out.println("digite o senha");
-	 senha = entrada.next();
-
-	 System.out.println("digite o telefone");
-	 String telefoneStr = entrada.nextLine();
-	 int telefoneInt = Integer.parseInt(telefoneStr);
-
-	 String user = new String(nome + " " + senha + " " + telefoneInt);
-
-	 listaDeFornecedor.add(user);
-
-	 System.out.println("Cadastrado com Sucesso!!");
-
-}
-
-
-public void listarFornecidos () {
-
-
-
-	System.out.println(listaDeFornecedor);
-	
-}
-
-private void removerFornecidos() {
-	
-}
-*/
 }
