@@ -13,9 +13,9 @@ static ArrayList<Estoque> listaEstoques = new ArrayList<Estoque>();
 public static void cadastrarFornecedor() {
 	
 	Scanner sc = new Scanner(System.in);
-	Random idProduto = new Random();
+	Random rand = new Random();
      
-	int numeroId = idProduto.nextInt(100);
+	int numeroId = rand.nextInt(100);
 	
 	System.out.println("Vamos cadastrar um novo Forneçedor:");
 	System.out.println("Digite o nome do Forneçedor:\n");
@@ -136,6 +136,39 @@ public static void deletarFornecedor() {
 			}
 	}}
 
+public static void cadastrarProduto() {
+	
+	Scanner sc = new Scanner(System.in);
+	Random rand = new Random();
+     
+	int numeroId = rand.nextInt(100);
+	
+	int codigoBarras = rand.nextInt(00000, 99999);
+	
+	System.out.println("Vamos cadastrar um novo Produto:");
+	System.out.println("Digite o nome do Produto:\n");
+	String nome = sc.next();
+	
+	System.out.println("Digite a descrição do produto:\n");
+	String descricao = sc.nextLine();
+	
+	System.out.println("Forneçedores Disponiveis: ");
+	for (int i =0 ; i < listaFornecedores.size(); i++) {
+		String nomeForn = listaFornecedores.get(i).getNome();
+		System.out.println(nomeForn);
+	}
+	System.out.println("Digite o nome do Fornecedor do produto:\n");
+	String nomeFornecedor = sc.nextLine();
+	
+	System.out.println("Digite a data de Cadastro:\n");
+	String dataCadastro = sc.nextLine();
+	sc.nextLine();
+	
+	Produto prod = new Produto(numeroId, codigoBarras, nome, descricao, nomeFornecedor, dataCadastro); 
+	
+	
+	listaProdutos.add(prod);
+}
 	
 	
 public static void main(String[] args) {

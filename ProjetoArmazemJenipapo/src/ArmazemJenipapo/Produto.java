@@ -6,13 +6,13 @@ public class Produto {
     private int codigoBarras;
     private String nome;
     private String descricao;
-    private Fornecedor nomeFornecedor;
+    private String nomeFornecedor;
     private String dataCadastro;
 
     
 Produto(){}  //Construtor Vazio 
     
-Produto(int id,int codigoBarras, String nome, String descricao, Fornecedor nomeFornecedor,String dataCadastro){
+Produto(int id,int codigoBarras, String nome, String descricao, String nomeFornecedor,String dataCadastro){
         
 	this.id = id;
 	this.codigoBarras = codigoBarras;
@@ -46,9 +46,9 @@ public void setDescricao(String descricao) {this.descricao = descricao;}
 
 
 
-public String getNomeFornecedor() {return nomeFornecedor.getNome();}
+public String getNomeFornecedor() {return this.nomeFornecedor;}
 
-public void setNomeFornecedor(String nome) {nomeFornecedor.setNome(nome);}
+public void setNomeFornecedor(String nome) {this.nomeFornecedor = nome;}
 
 
 
