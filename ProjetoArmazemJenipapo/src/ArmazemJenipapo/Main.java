@@ -234,6 +234,104 @@ public class Main {
                 System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }}}
 
+    public static void atualizarEstoque() {
+        Scanner ce = new Scanner(System.in);
+
+        System.out.println("Produtos Disponiveis: ");
+        for (int i =0 ; i < listaProdutos.size(); i++) {
+            String nomeProd = listaProdutos.get(i).getNome();
+            System.out.println(nomeProd);
+        }
+
+        System.out.println("Digite o nome do produto que deseja atualizar:");
+        String nomeProduto = ce.next();
+
+        for (int i = 0; i < listaProdutos.size(); i++) {
+            String nomeProdutoAtual = listaProdutos.get(i).getNome();
+
+            if (nomeProduto.equals(nomeProdutoAtual)) {
+                System.out.println("Digite a quantidade que deseja adicionar:");
+                int quantidade = ce.nextInt();
+
+
+                boolean produtoExistente = false;
+                for (Estoque estoque : listaEstoques) {
+                    if (estoque.getNomeProduto().equals(nomeProduto)) {
+                        estoque.adicionarQuantidade(quantidade);
+                        produtoExistente = true;
+                        break;
+                    }
+                }
+                if (!produtoExistente) {
+                    Estoque novoEstoque = new Estoque(nomeProduto, quantidade);
+                    listaEstoques.add(novoEstoque);
+                }
+
+                System.out.println("Estoque atualizado com sucesso!");
+                return;
+            }
+        }
+
+        System.out.println("Produto não encontrado.");
+    } // fim atualizar
+
+    public static void RemoverEstoque() {
+
+        Scanner ce = new Scanner(System.in);
+
+        System.out.println("Produtos Disponiveis: ");
+        for (int i =0 ; i < listaProdutos.size(); i++) {
+            String nomeProd = listaProdutos.get(i).getNome();
+            System.out.println(nomeProd);
+        }
+
+        System.out.println("Digite o nome do produto que deseja remover:");
+        String nomeProduto = ce.next();
+
+        for (int i = 0; i < listaProdutos.size(); i++) {
+            String nomeProdutoAtual = listaProdutos.get(i).getNome();
+
+            if (nomeProduto.equals(nomeProdutoAtual)) {
+                System.out.println("Digite a quantidade que deseja remover:");
+                int quantidade = ce.nextInt();
+
+
+                boolean produtoExistente = false;
+                for (Estoque estoque : listaEstoques) {
+                    if (estoque.getNomeProduto().equals(nomeProduto)) {
+                        estoque.removerQuantidade(quantidade);
+                        produtoExistente = true;
+                        break;
+                    }
+                }
+                if (!produtoExistente) {
+                    Estoque novoEstoque = new Estoque(nomeProduto, quantidade);
+                    listaEstoques.add(novoEstoque);
+                }
+
+                System.out.println("Estoque atualizado com sucesso!");
+                return;
+            }
+        }
+
+        System.out.println("Produto não encontrado.");
+
+
+
+    } // fim remover
+
+    public static void listarEstoque(){
+        for (int i =0 ; i < listaEstoques.size(); i++) {
+            String nome = listaEstoques.get(i).getNomeProduto();
+            int qnt = listaEstoques.get(i).getQuantidade();
+
+            System.out.println("");
+            System.out.println("Os estoques são: ");
+            System.out.println("Nome: " + nome + " " + "Quantidade: " + qnt);
+        }
+
+    } // fim listar
+
     public static void main(String[] args) {
 
         Scanner entrada = new Scanner(System.in);
@@ -253,17 +351,38 @@ public class Main {
             switch (numero) {
 
                 case 1:
+                    int i = 1;
                     System.out.println("Bem vindo ao estoque");
                     System.out.println("O que você deseja? Digite a opção desejada!");
                     System.out.println("1.Atualizar Estoque");
-                    System.out.println("2.Remover Produto");
+                    System.out.println("2.Remover Estoque");
                     System.out.println("3.Listar Produto em Estoque");
+                    System.out.println("0.Voltar");
 
                     int numeroMenu = entrada.nextInt();
 
                     switch (numeroMenu) {
 
                         case 1:
+                            atualizarEstoque();
+                            break;
+
+                        case 2:
+                            RemoverEstoque();
+                            break;
+
+                        case 3:
+                            listarEstoque();
+                            break;
+
+                        case 0:
+                            i = 0;
+                            break;
+
+                        default:
+                            System.out.println("Digite uma opção válida (Entre 0 a 3)");
+                            break;
+
 
                     }
 
@@ -271,7 +390,7 @@ public class Main {
 
 
                 case 2:  //Escolha Fornecedor
-                    int i = 1;
+                    i = 1;
                     while (i != 0) {
 
                         System.out.println("O que você deseja? Digite a opção desejada!");
@@ -310,37 +429,40 @@ public class Main {
 
 
                 case 3:
-                    System.out.println("O que você deseja? Digite a opção desejada!");
-                    System.out.println("1.Cadastrar Produto");
-                    System.out.println("2.Remover Produtos");
-                    System.out.println("3.Listar Produtos");
-                    System.out.println("4.Procurar Produtos por nome");
-                    System.out.println("5.Voltar ao menu");
-                    int numeroProduto = entrada.nextInt();
+                    i = 1;
+                    while (i != 0) {
 
-                    switch (numeroProduto) {
+                        System.out.println("O que você deseja? Digite a opção desejada!");
+                        System.out.println("1.Cadastrar Produto");
+                        System.out.println("2.Remover Produtos");
+                        System.out.println("3.Listar Produtos");
+                        System.out.println("4.Procurar Produtos por nome");
+                        System.out.println("0.Voltar ao menu");
+                        int numeroProduto = entrada.nextInt();
 
-                        case 1:
-                            cadastrarProduto();
-                            break;
-                        case 2:
-                            removerProduto();
-                            break;
-                        case 3:
-                            listarProdutos();
-                            break;
-                        case 4:
-                            buscarProdutoNome();
-                            break;
-                        case 5:
-                            i = 0;
-                            break;
-                        default:
-                            System.out.println("Digite uma opção válida (Entre 1 a 5)");
-                            break;
-                    } // fim switch
+                        switch (numeroProduto) {
 
-                    break;
+                            case 1:
+                                cadastrarProduto();
+                                break;
+                            case 2:
+                                removerProduto();
+                                break;
+                            case 3:
+                                listarProdutos();
+                                break;
+                            case 4:
+                                buscarProdutoNome();
+                                break;
+                            case 0:
+                                i = 0;
+                                break;
+                            default:
+                                System.out.println("Digite uma opção válida (Entre 0 a 4)");
+                                break;
+                        } // fim switch
+                    } //Fim while
+
 
                 case 0:
                     System.out.println("Programa encerrado!!");
