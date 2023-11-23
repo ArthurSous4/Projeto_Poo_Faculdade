@@ -148,6 +148,7 @@ public static void cadastrarProduto() {
 	System.out.println("Vamos cadastrar um novo Produto:");
 	System.out.println("Digite o nome do Produto:\n");
 	String nome = sc.next();
+	sc.nextLine();
 	
 	System.out.println("Digite a descrição do produto:\n");
 	String descricao = sc.nextLine();
@@ -182,9 +183,10 @@ public static void main(String[] args) {
             System.out.println("1.Estoque");
             System.out.println("2.Fornecedor");
             System.out.println("3.Produto");
-            System.out.println("4.Sair");
+            System.out.println("0.Sair");
 
             int numero = entrada.nextInt();
+            h = numero;
 
             switch (numero) {
 
@@ -247,6 +249,10 @@ public static void main(String[] args) {
                     
                 case 3:
                     //Escolha Produto
+                    break;
+                    
+                case 0:
+                	System.out.println("Programa encerrado!!");
                     break;
                 
                 default:
