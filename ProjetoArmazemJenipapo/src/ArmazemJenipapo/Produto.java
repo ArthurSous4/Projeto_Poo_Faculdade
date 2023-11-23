@@ -1,7 +1,7 @@
 package ArmazemJenipapo;
 
 public class Produto {
-    
+
     private int id;
     private int codigoBarras;
     private String nome;
@@ -9,51 +9,51 @@ public class Produto {
     private String nomeFornecedor;
     private String dataCadastro;
 
-    
-Produto(){}  //Construtor Vazio 
-    
-Produto(int id,int codigoBarras, String nome, String descricao, String nomeFornecedor,String dataCadastro){
-        
-	this.id = id;
-	this.codigoBarras = codigoBarras;
-	this.nome = nome;
-    this.descricao = descricao;
-    this.nomeFornecedor = nomeFornecedor;
-    this.dataCadastro = dataCadastro;
-}
 
-public int getId() {return id;}
+    Produto(){}  //Construtor Vazio
 
-public void setId(int id) {this.id = id;}
+    Produto(int id,int codigoBarras, String nome, String descricao, String nomeFornecedor,String dataCadastro){
 
+        this.id = id;
+        this.codigoBarras = codigoBarras;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.nomeFornecedor = nomeFornecedor;
+        this.dataCadastro = dataCadastro;
+    }
 
+    public int getId() {return id;}
 
-public int getCodigoBarras() {return codigoBarras;}
-
-public void setCodigoBarras(int codigoBarras) {this.codigoBarras = codigoBarras;}
+    public void setId(int id) {this.id = id;}
 
 
 
-public String getNome() {return nome;}
+    public int getCodigoBarras() {return codigoBarras;}
 
-public void setNome(String nome) {this.nome = nome;}
-
-
-
-public String getDescricao() {return descricao;}
-
-public void setDescricao(String descricao) {this.descricao = descricao;}
+    public void setCodigoBarras(int codigoBarras) {this.codigoBarras = codigoBarras;}
 
 
 
-public String getNomeFornecedor() {return this.nomeFornecedor;}
+    public String getNome() {return nome;}
 
-public void setNomeFornecedor(String nome) {this.nomeFornecedor = nome;}
+    public void setNome(String nome) {this.nome = nome;}
 
 
 
-public String getDataCadastro() {return dataCadastro;}
+    public String getDescricao() {return descricao;}
 
-public void setDataCadastro(String dataCadastro) {this.dataCadastro = dataCadastro;}
+    public void setDescricao(String descricao) {this.descricao = descricao;}
+
+
+
+    public String getNomeFornecedor() {return this.nomeFornecedor;}
+
+    public void setNomeFornecedor(String nome) {this.nomeFornecedor = nome;}
+
+
+
+    public String getDataCadastro() {return dataCadastro;}
+
+    public void setDataCadastro(String dataCadastro) {this.dataCadastro = dataCadastro;}
 
 }
