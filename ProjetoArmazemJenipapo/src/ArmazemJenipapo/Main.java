@@ -143,7 +143,7 @@ public class Main {
 
         int numeroId = rand.nextInt(100);
 
-        int codigoBarras = rand.nextInt(00000, 99999);
+        int codigoBarras = rand.nextInt(99999);
 
         System.out.println("Vamos cadastrar um novo Produto:");
         System.out.println("Digite o nome do Produto:\n");
@@ -160,12 +160,19 @@ public class Main {
         }
         System.out.println("Digite o nome do Fornecedor do produto:\n");
         String nomeFornecedor = sc.nextLine();
+        Fornecedor fornecedor = new Fornecedor();
+        
+        for (int i =0; i < listaFornecedores.size(); i++  ){
+                if(nomeFornecedor.equals(listaFornecedores.get(i).getNome())){
+                    fornecedor = listaFornecedores.get(i);
+                }
+        }
 
         System.out.println("Digite a data de Cadastro:\n");
         String dataCadastro = sc.nextLine();
         sc.nextLine();
 
-        Produto prod = new Produto(numeroId, codigoBarras, nome, descricao, nomeFornecedor, dataCadastro);
+        Produto prod = new Produto(numeroId, codigoBarras, nome, descricao, fornecedor, dataCadastro);
 
 
         listaProdutos.add(prod);
@@ -179,7 +186,7 @@ public class Main {
             int codigoBarras = listaProdutos.get(i).getCodigoBarras();
             String nome = listaProdutos.get(i).getNome();
             String descricao = listaProdutos.get(i).getDescricao();
-            String nomeFornecedor = listaProdutos.get(i).getNomeFornecedor();
+            Fornecedor nomeFornecedor = listaProdutos.get(i).getNomeFornecedor();
             String dataCadastro = listaProdutos.get(i).getDataCadastro();
 
 
@@ -226,7 +233,7 @@ public class Main {
                 int codigoBarras = listaProdutos.get(i).getCodigoBarras();
                 String nome = listaProdutos.get(i).getNome();
                 String descricao = listaProdutos.get(i).getDescricao();
-                String nomeFornecedor = listaProdutos.get(i).getNomeFornecedor();
+                Fornecedor nomeFornecedor = listaProdutos.get(i).getNomeFornecedor();
                 String dataCadastro = listaProdutos.get(i).getDataCadastro();
 
                 System.out.println("O Produto encontardo foi:");
@@ -246,6 +253,13 @@ public class Main {
         System.out.println("Digite o nome do produto que deseja atualizar:");
         String nomeProduto = ce.next();
 
+         Produto produto = new Produto();
+        
+        for (int i =0; i < listaFornecedores.size(); i++  ){
+                if(nomeProduto.equals(listaFornecedores.get(i).getNome())){
+                    produto = listaProdutos.get(i);
+                }
+        }
         for (int i = 0; i < listaProdutos.size(); i++) {
             String nomeProdutoAtual = listaProdutos.get(i).getNome();
 
@@ -262,13 +276,13 @@ public class Main {
                         break;
                     }
                 }
-                if (!produtoExistente) {
+             /*   if (!produtoExistente) {
                     Estoque novoEstoque = new Estoque(nomeProduto, quantidade);
                     listaEstoques.add(novoEstoque);
-                }
+                } */
 
                 System.out.println("Estoque atualizado com sucesso!");
-                return;
+               
             }
         }
 
@@ -304,10 +318,10 @@ public class Main {
                         break;
                     }
                 }
-                if (!produtoExistente) {
+              /*  if (!produtoExistente) {
                     Estoque novoEstoque = new Estoque(nomeProduto, quantidade);
                     listaEstoques.add(novoEstoque);
-                }
+                } */
 
                 System.out.println("Estoque atualizado com sucesso!");
                 return;
@@ -321,13 +335,17 @@ public class Main {
     } // fim remover
 
     public static void listarEstoque(){
+      
+        
         for (int i =0 ; i < listaEstoques.size(); i++) {
-            String nome = listaEstoques.get(i).getNomeProduto();
+            Produto produto = listaEstoques.get(i).getNomeProduto();
             int qnt = listaEstoques.get(i).getQuantidade();
+            
+           
 
             System.out.println("");
             System.out.println("Os estoques são: ");
-            System.out.println("Nome: " + nome + " " + "Quantidade: " + qnt);
+            System.out.println("Nome: " + produto + " " + "Quantidade: " + qnt);
         }
 
     } // fim listar

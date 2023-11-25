@@ -6,13 +6,13 @@ public class Produto {
     private int codigoBarras;
     private String nome;
     private String descricao;
-    private String nomeFornecedor;
+    private Fornecedor nomeFornecedor;
     private String dataCadastro;
 
 
     Produto(){}  //Construtor Vazio
 
-    Produto(int id,int codigoBarras, String nome, String descricao, String nomeFornecedor,String dataCadastro){
+    Produto(int id,int codigoBarras, String nome, String descricao, Fornecedor nomeFornecedor,String dataCadastro){ 
 
         this.id = id;
         this.codigoBarras = codigoBarras;
@@ -20,6 +20,10 @@ public class Produto {
         this.descricao = descricao;
         this.nomeFornecedor = nomeFornecedor;
         this.dataCadastro = dataCadastro;
+    }
+
+    Produto(int numeroId, int codigoBarras, String nome, String descricao, String nomeFornecedor, String dataCadastro) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId() {return id;}
@@ -46,9 +50,9 @@ public class Produto {
 
 
 
-    public String getNomeFornecedor() {return this.nomeFornecedor;}
+    public Fornecedor getNomeFornecedor() {return this.nomeFornecedor;}
 
-    public void setNomeFornecedor(String nome) {this.nomeFornecedor = nome;}
+    public void setNomeFornecedor(Fornecedor nome) {this.nomeFornecedor = nome;}
 
 
 
