@@ -160,6 +160,7 @@ public class Main {
         }
         System.out.println("Digite o nome do Fornecedor do produto:\n");
         String nomeFornecedor = sc.nextLine();
+        
         Fornecedor fornecedor = new Fornecedor();
         
         for (int i =0; i < listaFornecedores.size(); i++  ){
@@ -174,19 +175,19 @@ public class Main {
 
         Produto prod = new Produto(numeroId, codigoBarras, nome, descricao, fornecedor, dataCadastro);
 
-
         listaProdutos.add(prod);
     }
 
     public static void listarProdutos() {
-
+    	
+    	
         for (int i =0 ; i < listaProdutos.size(); i++) {
+
 
             int numeroId = listaProdutos.get(i).getId();
             int codigoBarras = listaProdutos.get(i).getCodigoBarras();
             String nome = listaProdutos.get(i).getNome();
-            String descricao = listaProdutos.get(i).getDescricao();
-            Fornecedor nomeFornecedor = listaProdutos.get(i).getNomeFornecedor();
+            String descricao = listaProdutos.get(i).getDescricao(); 
             String dataCadastro = listaProdutos.get(i).getDataCadastro();
 
 

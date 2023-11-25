@@ -5,7 +5,8 @@ public class Estoque {
     private int quantidade;
 
     public Estoque(Produto nomeProduto, int quantidade) {
-        this.nomeProduto = nomeProduto;
+        
+    	this.nomeProduto = nomeProduto;
         this.quantidade = quantidade;
     }
 
