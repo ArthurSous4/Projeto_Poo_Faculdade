@@ -62,7 +62,7 @@ public class Main {
 
     public static void listarFornecedores() {
 
-        for (int i =0 ; i < listaFornecedores.size(); i++) {
+        for (int i = 0 ; i < listaFornecedores.size(); i++) {
 
             int id = listaFornecedores.get(i).getIdFornecedor();
             String nome = listaFornecedores.get(i).getNome();
@@ -146,12 +146,6 @@ public class Main {
         int codigoBarras = rand.nextInt(99999);
 
         System.out.println("Vamos cadastrar um novo Produto:");
-        System.out.println("Digite o nome do Produto:\n");
-        String nome = sc.next();
-        sc.nextLine();
-
-        System.out.println("Digite a descrição do produto:\n");
-        String descricao = sc.nextLine();
 
         System.out.println("Forneçedores Disponiveis: ");
         for (int i =0 ; i < listaFornecedores.size(); i++) {
@@ -160,22 +154,42 @@ public class Main {
         }
         System.out.println("Digite o nome do Fornecedor do produto:\n");
         String nomeFornecedor = sc.nextLine();
-        
+
         Fornecedor fornecedor = new Fornecedor();
-        
-        for (int i =0; i < listaFornecedores.size(); i++  ){
-                if(nomeFornecedor.equals(listaFornecedores.get(i).getNome())){
-                    fornecedor = listaFornecedores.get(i);
-                }
+
+        for (int i = 0; i < listaFornecedores.size(); i++) {
+            if (nomeFornecedor.equals(listaFornecedores.get(i).getNome())) {
+                fornecedor = listaFornecedores.get(i);
+            }
         }
 
-        System.out.println("Digite a data de Cadastro:\n");
-        String dataCadastro = sc.nextLine();
-        sc.nextLine();
+        for (int n = 0; n < listaFornecedores.size(); n++) {
+            String nomeFornecedorAtual = listaFornecedores.get(n).getNome();
+            if (nomeFornecedor.equals(nomeFornecedorAtual)) {
 
-        Produto prod = new Produto(numeroId, codigoBarras, nome, descricao, fornecedor, dataCadastro);
 
-        listaProdutos.add(prod);
+                System.out.println("Digite o nome do Produto:\n");
+                String nome = sc.next();
+                sc.nextLine();
+
+                System.out.println("Digite a descrição do produto:\n");
+                String descricao = sc.nextLine();
+
+
+                System.out.println("Digite a data de Cadastro:\n");
+                String dataCadastro = sc.nextLine();
+                sc.nextLine();
+
+                Produto prod = new Produto(numeroId, codigoBarras, nome, descricao, fornecedor, dataCadastro);
+
+                listaProdutos.add(prod);
+
+            } else {
+            	System.out.println("Produto não encontrado!!");
+            }
+        } // fim for do if
+
+
     }
 
     public static void listarProdutos() {
@@ -255,9 +269,9 @@ public class Main {
         String nomeProduto = ce.next();
 
          Produto produto = new Produto();
-        
-        for (int i =0; i < listaFornecedores.size(); i++  ){
-                if(nomeProduto.equals(listaFornecedores.get(i).getNome())){
+
+        for (int i =0; i < listaProdutos.size(); i++  ){
+                if(nomeProduto.equals(listaProdutos.get(i).getNome())){
                     produto = listaProdutos.get(i);
                 }
         }
@@ -277,13 +291,13 @@ public class Main {
                         break;
                     }
                 }
-             /*   if (!produtoExistente) {
-                    Estoque novoEstoque = new Estoque(nomeProduto, quantidade);
+               if (!produtoExistente) {
+                    Estoque novoEstoque = new Estoque(produto, quantidade);
                     listaEstoques.add(novoEstoque);
-                } */
+                }
 
                 System.out.println("Estoque atualizado com sucesso!");
-               
+
             }
         }
 
@@ -293,6 +307,7 @@ public class Main {
     public static void RemoverEstoque() {
 
         Scanner ce = new Scanner(System.in);
+        Produto produto = new Produto();
 
         System.out.println("Produtos Disponiveis: ");
         for (int i =0 ; i < listaProdutos.size(); i++) {
@@ -319,10 +334,10 @@ public class Main {
                         break;
                     }
                 }
-              /*  if (!produtoExistente) {
-                    Estoque novoEstoque = new Estoque(nomeProduto, quantidade);
+                if (!produtoExistente) {
+                    Estoque novoEstoque = new Estoque(produto, quantidade);
                     listaEstoques.add(novoEstoque);
-                } */
+                }
 
                 System.out.println("Estoque atualizado com sucesso!");
                 return;
@@ -369,8 +384,9 @@ public class Main {
 
             switch (numero) {
 
-                case 1:
-                    int i = 1;
+            case 1:
+                int i = 1;
+                while (i != 0) {
                     System.out.println("Bem vindo ao estoque");
                     System.out.println("O que você deseja? Digite a opção desejada!");
                     System.out.println("1.Atualizar Estoque");
@@ -404,8 +420,7 @@ public class Main {
 
 
                     }
-
-                    break;
+                } // fim while
 
 
                 case 2:  //Escolha Fornecedor
@@ -417,7 +432,7 @@ public class Main {
                         System.out.println("2.Deletar Fornecedor");
                         System.out.println("3.Listar Fornecedor");
                         System.out.println("4.Procurar Fornecedor por nome");
-                        System.out.println("5.Voltar ao menu");
+                        System.out.println("0.Voltar ao menu");
                         int numerofornecedor = entrada.nextInt();
 
                         switch (numerofornecedor) {
@@ -434,7 +449,7 @@ public class Main {
                             case 4:
                                 buscarFornecedorNome();
                                 break;
-                            case 5:
+                            case 0:
                                 i = 0;
                                 break;
                             default:
