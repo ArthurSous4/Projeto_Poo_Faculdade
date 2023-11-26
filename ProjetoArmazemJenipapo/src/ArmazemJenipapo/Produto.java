@@ -46,9 +46,9 @@ public class Produto {
 
 
 
-    public Fornecedor getNomeFornecedor() {return this.nomeFornecedor;}
+    public String getNomeFornecedor() {return this.nomeFornecedor.getNome();}
 
-    public void setNomeFornecedor(Fornecedor nome) {this.nomeFornecedor = nome;}
+    public void setNomeFornecedor(String nome) {this.nomeFornecedor.setNome(nome);}
 
 
 

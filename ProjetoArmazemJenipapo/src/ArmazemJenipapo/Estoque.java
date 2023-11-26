@@ -1,25 +1,29 @@
 package ArmazemJenipapo;
 
 public class Estoque {
-    private Produto nomeProduto;
+    
+	private Produto nomeProduto;
     private int quantidade;
 
-    public Estoque(Produto nomeProduto, int quantidade) {
+public Estoque(Produto nomeProduto, int quantidade) {
         
-    	this.nomeProduto = nomeProduto;
-        this.quantidade = quantidade;
+    this.nomeProduto = nomeProduto;
+    this.quantidade = quantidade;
     }
 
 
-    public Produto getNomeProduto() {return nomeProduto;}
+    public String getNomeProduto() {return nomeProduto.getNome();}
 
-    public void setNomeProduto(Produto nomeProduto) {this.nomeProduto = nomeProduto;}
+    public void setNomeProduto(String nomeProduto) {this.nomeProduto.setNome(nomeProduto);}
 
+    
 
     public int getQuantidade() {return quantidade;}
 
     public void setQuantidade(int quantidade) {this.quantidade = quantidade;}
 
+    
+    
     public void adicionarQuantidade(int quantidadeAdicional) {
         quantidade += quantidadeAdicional;
     }

@@ -189,11 +189,11 @@ public class Main {
             String nome = listaProdutos.get(i).getNome();
             String descricao = listaProdutos.get(i).getDescricao(); 
             String dataCadastro = listaProdutos.get(i).getDataCadastro();
-
+            String nomeForn = listaProdutos.get(i).getNomeFornecedor();
 
             System.out.println("");
             System.out.println("Os produtos disponíveis são:");
-            System.out.println("ID = " + numeroId + "| Código de barras = " + codigoBarras + "| Nome do Produto = " + nome + "| Descrição = " + descricao + "| Nome do Fornecedor = " + nomeFornecedor + "| Data de cadastro = " + dataCadastro );
+            System.out.println("ID = " + numeroId + "| Código de barras = " + codigoBarras + "| Nome do Produto = " + nome + "| Descrição = " + descricao + "| Nome do Fornecedor = " + nomeForn + "| Data de cadastro = " + dataCadastro );
             System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         }
     }
@@ -234,11 +234,11 @@ public class Main {
                 int codigoBarras = listaProdutos.get(i).getCodigoBarras();
                 String nome = listaProdutos.get(i).getNome();
                 String descricao = listaProdutos.get(i).getDescricao();
-                Fornecedor nomeFornecedor = listaProdutos.get(i).getNomeFornecedor();
+                String nomeForn = listaProdutos.get(i).getNomeFornecedor();
                 String dataCadastro = listaProdutos.get(i).getDataCadastro();
 
                 System.out.println("O Produto encontardo foi:");
-                System.out.println("ID = " + id + "| CÓDIGO DE BARRAS = " + codigoBarras + "| NOME = " + nome + "| DESCRIÇÃO = " + descricao + "| FORNECEDOR = " + nomeFornecedor + "| DATA DE CADASTRO = " + dataCadastro );
+                System.out.println("ID = " + id + "| CÓDIGO DE BARRAS = " + codigoBarras + "| NOME = " + nome + "| DESCRIÇÃO = " + descricao + "| FORNECEDOR = " + nomeForn + "| DATA DE CADASTRO = " + dataCadastro );
                 System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }}}
 
@@ -339,14 +339,14 @@ public class Main {
       
         
         for (int i =0 ; i < listaEstoques.size(); i++) {
-            Produto produto = listaEstoques.get(i).getNomeProduto();
+            
+        	String produto = listaEstoques.get(i).getNomeProduto();
             int qnt = listaEstoques.get(i).getQuantidade();
             
-           
-
             System.out.println("");
-            System.out.println("Os estoques são: ");
-            System.out.println("Nome: " + produto + " " + "Quantidade: " + qnt);
+            System.out.println("Os Estoques disponíveis são:");
+            System.out.println("Nome do Produto = " + produto + "| Quantidade = " + qnt);
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         }
 
     } // fim listar
