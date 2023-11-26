@@ -152,20 +152,29 @@ public class Main {
             String nomeForn = listaFornecedores.get(i).getNome();
             System.out.println(nomeForn);
         }
-        System.out.println("Digite o nome do Fornecedor do produto:\n");
-        String nomeFornecedor = sc.nextLine();
+        System.out.println("Digite o nome do Fornecedor diponivel:");
+        String nomeForn = sc.next();
 
-        Fornecedor fornecedor = new Fornecedor();
+         Fornecedor forn = new Fornecedor();
 
-        for (int i = 0; i < listaFornecedores.size(); i++) {
-            if (nomeFornecedor.equals(listaFornecedores.get(i).getNome())) {
-                fornecedor = listaFornecedores.get(i);
-            }
+        for (int i =0; i < listaFornecedores.size(); i++  ){
+                if(nomeForn.equals(listaFornecedores.get(i).getNome())){
+                    forn = listaFornecedores.get(i);
+                }
         }
+        for (int i = 0; i < listaFornecedores.size(); i++) {
+            String nomeFornAtual = listaFornecedores.get(i).getNome();
 
-        for (int n = 0; n < listaFornecedores.size(); n++) {
-            String nomeFornecedorAtual = listaFornecedores.get(n).getNome();
-            if (nomeFornecedor.equals(nomeFornecedorAtual)) {
+            if (nomeForn.equals(nomeFornAtual)) {
+               
+                boolean fornExistente = false;
+                for (Produto produto : listaProdutos) {
+                    if (produto.getNomeFornecedor().equals(nomeForn)) {
+                        fornExistente = true;
+                        break;
+                    }
+               
+                }
 
 
                 System.out.println("Digite o nome do Produto:\n");
@@ -180,12 +189,12 @@ public class Main {
                 String dataCadastro = sc.nextLine();
                 sc.nextLine();
 
-                Produto prod = new Produto(numeroId, codigoBarras, nome, descricao, fornecedor, dataCadastro);
+                Produto prod = new Produto(numeroId, codigoBarras, nome, descricao, forn, dataCadastro);
 
                 listaProdutos.add(prod);
 
             } else {
-            	System.out.println("Produto não encontrado!!");
+            	System.out.println("Fornecedor não encontrado!!");
             }
         } // fim for do if
 
