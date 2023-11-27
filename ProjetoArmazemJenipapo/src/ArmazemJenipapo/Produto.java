@@ -10,9 +10,9 @@ public class Produto {
     private String dataCadastro;
 
 
-    Produto(){}  //Construtor Vazio
+    Produto(){}
 
-    Produto(int id,int codigoBarras, String nome, String descricao, Fornecedor nomeFornecedor,String dataCadastro){ 
+    Produto(int id,int codigoBarras, String nome, String descricao, Fornecedor nomeFornecedor,String dataCadastro){
 
         this.id = id;
         this.codigoBarras = codigoBarras;
@@ -27,11 +27,9 @@ public class Produto {
     public void setId(int id) {this.id = id;}
 
 
-
     public int getCodigoBarras() {return codigoBarras;}
 
     public void setCodigoBarras(int codigoBarras) {this.codigoBarras = codigoBarras;}
-
 
 
     public String getNome() {return nome;}
@@ -39,17 +37,14 @@ public class Produto {
     public void setNome(String nome) {this.nome = nome;}
 
 
-
     public String getDescricao() {return descricao;}
 
     public void setDescricao(String descricao) {this.descricao = descricao;}
 
 
-
     public String getNomeFornecedor() {return this.nomeFornecedor.getNome();}
 
     public void setNomeFornecedor(String nome) {this.nomeFornecedor.setNome(nome);}
-
 
 
     public String getDataCadastro() {return dataCadastro;}

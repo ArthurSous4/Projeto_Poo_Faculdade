@@ -1,29 +1,26 @@
 package ArmazemJenipapo;
 
 public class Estoque {
-    
-	private Produto nomeProduto;
+
+    private Produto nomeProduto;
     private int quantidade;
 
-public Estoque(Produto nomeProduto, int quantidade) {
-        
-    this.nomeProduto = nomeProduto;
-    this.quantidade = quantidade;
-    }
+    public Estoque(Produto nomeProduto, int quantidade) {
 
+        this.nomeProduto = nomeProduto;
+        this.quantidade = quantidade;
+    }
 
     public String getNomeProduto() {return nomeProduto.getNome();}
 
     public void setNomeProduto(String nomeProduto) {this.nomeProduto.setNome(nomeProduto);}
 
-    
 
     public int getQuantidade() {return quantidade;}
 
     public void setQuantidade(int quantidade) {this.quantidade = quantidade;}
 
-    
-    
+
     public void adicionarQuantidade(int quantidadeAdicional) {
         quantidade += quantidadeAdicional;
     }
@@ -35,5 +32,4 @@ public Estoque(Produto nomeProduto, int quantidade) {
             System.out.println("Quantidade inválida. Nenhuma alteração feita no estoque.");
         }
     }
-
 }
